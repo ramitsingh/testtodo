@@ -1,0 +1,35 @@
+<div class="col-sm-12 pt-5 text-left">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary" (click)="onClickActiveTodo()">Active Task</button>
+        <button type="button" class="btn btn-primary" (click)="onClickCompletedTodo()">Completed Tasks</button>
+</div>
+
+<div class="col-sm-12 pt-2">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col" class="text-center">#</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let todoList of todoLists">
+                    <td class="text-center">{{todoList.id}}</td>
+                    <td>{{todoList.task}}</td>
+                    <td>{{todoList.details}}</td>
+                    <td>{{todoList.dueDate}}</td>
+                    <td width="200" class="text-center">
+                        <button type="button" class="btn btn-info btn-sm mr-2"
+                            (click)="onClickEditTodoDetail(todoList.id)">Update</button>
+                        <button type="button" class="btn btn-danger btn-sm"
+                            (click)="onClickTodoMarkComplete(todoList)">Mark complete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
